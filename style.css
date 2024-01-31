@@ -1,0 +1,228 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    transition: 0.3s all;
+}
+::-webkit-scrollbar{
+    width: 7px;
+}
+::-webkit-scrollbar-track{
+    background-color:rgb(23, 23, 23);
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgb(255, 42, 117);
+} 
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 100vw;
+    height: auto;
+    background:rgb(23, 23, 23);
+    padding:20px 30px;
+    font-size: 1.2rem;
+    color:whitesmoke;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transform: scaleY(1);
+    transform-origin: top center;
+    z-index: 100;
+    transition: 0.3s ease;
+}
+.navbar.sticky{
+    position: fixed;
+    top: 0;
+    left: 0;
+    animation:expand 0.3s ease-in;
+}
+@keyframes expand{
+    0%{transform: scaleY(0);}
+    100%{transform: scaleY(1);}
+}
+h2 span.dot{
+    position: relative;
+    color: rgb(255, 42, 117);
+}
+h2{
+    position: relative;
+    margin-left: 20px;
+}
+h2::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -3px;
+    width: 40px;
+    height: 2px;
+    background-color:whitesmoke;
+}
+span.dot::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 60px;
+    height: 2px;
+    background-color: rgb(255, 42, 117);
+}
+
+#form{
+    width: 270px;
+    height: auto;
+    margin: 0;
+    margin-right: 50px;
+    padding: 0;
+}
+#form input{
+    width: 100%;
+    margin: 0;
+    padding: 10px 12px 10px 20px;
+    caret-color: red;
+    font-size: 15px;
+    text-transform: capitalize;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+}
+.loading_Card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:520px;
+    height: 440px;
+    margin-top: 80px;
+    border-radius: 20px;
+    padding: 30px 20px;
+    transition: 0.3s ease;
+}
+.loading_Card img{
+    width: 70%;
+    object-fit: cover;
+    opacity: 0.8;
+    transition: 0.4s ease;
+}
+.loading_Card h2{
+    text-align: center;
+    margin-top: 50px;
+    color: transparent;
+    background:linear-gradient(-30deg,rgb(61, 61, 61),rgb(0, 0, 0));
+    background-clip: text;
+    opacity:0.7;
+    transform: scale(0.82);
+    animation:colorChange 0.8s ease infinite;
+    /* border: 2px solid gray; */
+}
+@keyframes colorChange{
+   0%{opacity:0.7;transform: scale(0.82);}
+   60%{opacity:1.0;transform: scale(0.9);}
+   100%{opacity:0.7;transform: scale(0.82);}
+}
+
+.movie_container .resultsFound{
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+.resultsFound h3{
+    width: 180px;
+    background-color: antiquewhite;
+    color: black;
+    font-size: 14px;
+    padding: 8px 12px 8px 22px;
+    border-radius: 0 10px 10px 0;
+}
+.movie_container i{
+    font-size: 6rem;
+    color: red;
+}
+.movie_container{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    background:white;
+    padding: 95px 0 60px 0;
+    gap:30px;
+    transition: 0.4s ease;
+    overflow: auto;
+}
+.movie_container .movie_card{
+    width:310px;
+    background:rgb(172, 255, 255);
+    padding: 0 0 25px 0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 8px 3px 36px 5px rgba(0, 0, 0, 0.44);
+    transform: scale(0.92);
+    cursor: pointer;
+    transition:0.3s ease;
+    animation: scaleUp 0.8s ease-in-out;
+}
+.movie_container .movie_card:hover{
+    box-shadow: 8px 3px 36px 5px rgba(0, 0, 0, 0.6);
+    transform: scale(0.97);
+}
+@keyframes scaleUp{
+    0%{transform: scale(0);}
+    100%{transform: scale(0.94);}
+
+}
+.movie_card img{
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+}
+.movie_card h4{
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
+    margin: 20px 0 10px 0;
+}
+
+@media (max-width: 550px){
+    header{
+        margin: 0;
+    }
+    header h2{
+        font-size: 24px;
+        margin-left: 0;
+    }
+    #form{
+        width:400px;
+        padding: 0;
+        margin-top: 8px;
+    }
+    #form .searchBox{
+        width: 100%;
+        padding: 10px 20px;
+    }
+    .movie_container{
+        margin-top: 40px;
+        gap: 20px 40px;
+    }
+}
+@media (min-width: 551px) and (max-width: 780px){
+    header h2{
+        font-size: 25px;
+        margin-left: 0;
+    }
+ }
